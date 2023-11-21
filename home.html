@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Research Management System (RMS) </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+.myLink {display: none}
+
+.topnav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+
+}
+.site-footer
+{
+  background-color:#26272b;
+  padding:45px 0 20px;
+  font-size:15px;
+  line-height:24px;
+  color:#737373;
+}
+.site-footer hr
+{
+  border-top-color:#bbb;
+  opacity:0.5
+}
+.site-footer hr.small
+{
+  margin:20px 0
+}
+.site-footer h6
+{
+  color:#fff;
+  font-size:16px;
+  text-transform:uppercase;
+  margin-top:5px;
+  letter-spacing:2px
+}
+.site-footer a
+{
+  color:#737373;
+}
+.site-footer a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links
+{
+  padding-left:0;
+  list-style:none
+}
+.footer-links li
+{
+  display:block
+}
+.footer-links a
+{
+  color:#737373
+}
+.footer-links a:active,.footer-links a:focus,.footer-links a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links.inline li
+{
+  display:inline-block
+}
+.site-footer .social-icons
+{
+  text-align:right
+}
+.site-footer .social-icons a
+{
+  width:40px;
+  height:40px;
+  line-height:40px;
+  margin-left:6px;
+  margin-right:0;
+  border-radius:100%;
+  background-color:#33353d
+}
+.copyright-text
+{
+  margin:0
+}
+@media (max-width:991px)
+{
+  .site-footer [class^=col-]
+  {
+    margin-bottom:30px
+  }
+}
+@media (max-width:767px)
+{
+  .site-footer
+  {
+    padding-bottom:0
+  }
+  .site-footer .copyright-text,.site-footer .social-icons
+  {
+    text-align:center
+  }
+}
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+}
+.social-icons li
+{
+  display:inline-block;
+  margin-bottom:4px
+}
+.social-icons li.title
+{
+  margin-right:15px;
+  text-transform:uppercase;
+  color:#96a2b2;
+  font-weight:700;
+  font-size:13px
+}
+.social-icons a{
+  background-color:#eceeef;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+  color:#fff;
+  background-color:#29aafe
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.social-icons a.facebook:hover
+{
+  background-color:#3b5998
+}
+.social-icons a.twitter:hover
+{
+  background-color:#00aced
+}
+.social-icons a.linkedin:hover
+{
+  background-color:#007bb6
+}
+.social-icons a.dribbble:hover
+{
+  background-color:#000000
+}
+@media (max-width:767px)
+{
+  .social-icons li.title
+  {
+    display:block;
+    margin-right:0;
+    font-weight:600
+  }
+}
+
+
+
+</style>
+
+<body>
+
+     <!-- Navbar -->
+<!-- Navbar (sit on top) -->
+<div class="topnav" >
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+    <a href="home.html" class="w3-bar-item w3-button"><img src="newlogo1.png" style="width:100px "style="height:50px" > Research Management System (RMS)</a>
+
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#about" class="w3-bar-item w3-button">About</a> 
+     <a href="#help"  class="w3-bar-item w3-button" onclick="help();return false;">Help</a> 
+      <a href="SignIn.html" class="w3-bar-item w3-button">Sign In</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- Page content -->
+
+<div class="w3-content" style="max-width:2000px;margin-top:2px;"><!-- Automatic Slideshow Images -->
+  <div class="mySlides w3-display-container w3-center"><img src="banner-uptm.png" style="width:100% " />
+  <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small"></div>
+  </div>
+  
+  <div class="mySlides w3-display-container w3-center"><img src="banner7.jpg" style="width:100%" />
+  <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small"></div>
+  </div>
+  
+  <div class="mySlides w3-display-container w3-center"><img src="banner6.png" style="width:100%" />
+  <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small"></div>
+  </div>
+  </div>
+
+<!-- The About Section -->
+
+<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="about">
+  <h2 class="w3-wide">Research Management System (RMS)</h2>
+  <p class="w3-opacity"><i>Organize Your Data Better</i></p>
+  <p class="w3-justify"><span style="font-size:16px;"><span style="font-family:Lucida Sans Unicode,Lucida Grande,sans-serif;"><span lang="EN-GB">A Research Management System (RMS) is a platform for principal investigators to assist them in managing and keeping track of all research activities such as journals, conferences, intellectual property, innovation exhibitions, funds, and expenses. The centralized web application allows easy accessibility of grant information for all the stakeholders. The business process automation engine helps in expediting the work flow process and making it paperless & contactless.</span></span></span></p>
+</div>
+
+
+<!-- The Contact Section -->
+
+<div style="background-color: #ECF0F1;">
+  <div class="w3-container w3-content w3-padding-64" id="contact" style="max-width:800px">
+  <h2 class="w3-wide w3-center">CONTACT</h2>
+  
+  <p class="w3-opacity w3-center"><i>Feedbacks? Drop a note!</i></p>
+  
+  <div class="w3-row w3-padding-32">
+  <div class="w3-col m6 w3-large w3-margin-bottom">Universiti Poly-Tech Malaysia&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Jalan 6/91, Taman Shamelin Perkasa,&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 56100 Cheras, Kuala Lumpur<br />
+  Phone: 03-9206 9700<br />
+  Email: rmc@uptm.edu.my</div>
+  
+  <div class="w3-col m6">
+  <form target="_blank">
+  <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+  <div class="w3-half"><input class="w3-input w3-border" id="Contact_Name" name="Name" placeholder="Name" required="" type="text" /></div>
+  
+  <div class="w3-half"><input class="w3-input w3-border" id="Contact_Email" name="Email" placeholder="Email" required="" type="email" /></div>
+  </div>
+  <input class="w3-input w3-border" id="Contact_Message" name="Message" placeholder="Message" required="" type="text" /><button class="w3-button w3-black w3-section w3-right" id="contact_button" type="button">SEND</button></form>
+  </div>
+  </div>
+  </div>
+  </div>
+  <!-- Image of location/map -->
+  
+  <!-- <p align="center"><a href="https://www.google.com/maps/place/Kolej+Universiti+Poly-Tech+MARA+Kuala+Lumpur/@3.1277317,101.7350849,17z/data=!3m1!4b1!4m5!3m4!1s0x31cc374119aeec81:0xa023551a33256eb1!8m2!3d3.1277317!4d101.7372736"><img class="w3-image w3-greyscale-min" src="map.png" style="width: 50%; height: 300px;" /></a> <!-- Site footer --></p> 
+  
+  <!-- <footer class="site-footer">
+  <div class="container" style="height:130px;">
+  <div class="row">
+  <div class="col-sm-12 col-md-6" style="width: 900px; margin-left:35px;">
+  <h6>Contact</h6>
+  
+  <p>Universiti Poly-Tech Malaysia</p>
+  <p>Jalan 6/91, Taman Shamelin Perkasa</p>
+  <p>56100 Cheras, Kuala Lumpur<br />
+  Phone: 03-9206 9700<br />
+  Email: shima@uptm.edu.my</p>
+  -->
+  <p></p>
+  </div>
+  </div>
+  
+  <hr /></div>
+  
+  <div class="container" style=" margin-left:35px;">
+  <div class="row">
+  <div class="col-md-8 col-sm-6 col-xs-12">&nbsp;
+  <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by <a href="#">UPTM</a>.</p>
+  </div>
+  
+  <div class="col-md-4 col-sm-6 col-xs-12" style=" margin-right:35px;">
+  <ul class="social-icons">
+    <li></li>
+    <li></li>
+  </ul>
+  </div>
+  </div>
+  </div>
+  </footer>
+
+
+<script>
+  
+// Automatic Slideshow - change image every 4 seconds
+var myIndex = 0;
+carousel();
+
+function carousel() {
+var i;
+var x = document.getElementsByClassName("mySlides");
+for (i = 0; i < x.length; i++) {
+  x[i].style.display = "none";  
+}
+myIndex++;
+if (myIndex > x.length) {myIndex = 1}    
+x[myIndex-1].style.display = "block";  
+setTimeout(carousel, 4000);    
+}
+
+
+</script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+	  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+	  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+	  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-storage.js"></script>
+    
+    
+		
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+			https://firebase.google.com/docs/web/setup#available-libraries -->
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+<script src = "contact.js"></script>
+
+</body>
+</html>

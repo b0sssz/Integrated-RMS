@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Research Management System (RMS) </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+<style>
+
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: #ECF0F1 ;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: "Lato", sans-serif;
+	height: 100vh;
+	margin: -20px 0 50x;
+	
+}
+
+h1 {
+	font-weight: bold;
+	margin: 0;
+}
+
+h2 {
+	text-align: center;
+}
+
+p {
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+	margin: 20px 0 30px;
+}
+
+span {
+	font-size: 12px;
+}
+
+
+button  {
+	border-radius: 20px;
+	border: 1px solid #FF4B2B;
+	background-color: #FF4B2B;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+button[type='button']  {
+
+	border: 1px solid #eee;
+	background-color: #eee;
+	color: black;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+	
+}
+button[type='button']:hover  {
+
+    background-color: #FF4B2B ;
+	
+}
+
+
+
+button:active {
+	transform: scale(0.95);
+}
+
+button:focus {
+	outline: none;
+}
+
+button.ghost {
+	background-color: transparent;
+	border-color: #FFFFFF;
+}
+button.ghost:hover {
+	
+	color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+}
+
+.AdSignIn{
+	border: 1px solid #FF4B2B;
+	background-color: #FF4B2B;
+
+}
+.AdSignIn:hover{
+
+	color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+}
+
+.RMCSignIn{
+	border: 1px solid #FF4B2B;
+	background-color: #FF4B2B;
+
+}
+.RMCSignIn:hover{
+	border: 1px solid #FE6145;
+	background-color: #FE6145;
+	color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+}
+.SignIn:hover {
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+}
+.Register:hover {
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+}
+
+form {
+	background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	text-align: center;
+}
+
+input {
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+}
+
+
+.container {
+	background-color: #fff;
+	border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+	width: 768px;
+
+	max-width: 100%;
+	min-height: 680px;
+	margin-top: 140px;
+	margin-bottom: 100px;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+.form-container {
+	position: absolute;
+	top: 0;
+	height: 90%;
+	transition: all 0.6s ease-in-out;
+}
+
+.sign-in-container {
+	left: 0;
+	width: 50%;
+	z-index: 2;
+}
+
+.container.right-panel-active .sign-in-container {
+	transform: translateX(100%);
+}
+
+.sign-up-container {
+	left: 0;
+	width: 50%;
+	opacity: 0;
+	z-index: 1;
+}
+
+.container.right-panel-active .sign-up-container {
+	transform: translateX(100%);
+	opacity: 1;
+	z-index: 5;
+	animation: show 0.6s;
+}
+
+@keyframes show {
+	0%, 49.99% {
+		opacity: 0;
+		z-index: 1;
+	}
+	
+	50%, 100% {
+		opacity: 1;
+		z-index: 5;
+	}
+}
+
+.overlay-container {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+	transition: transform 0.6s ease-in-out;
+	z-index: 100;
+}
+
+.container.right-panel-active .overlay-container{
+	transform: translateX(-100%);
+}
+
+.overlay {
+	background: #FF416C;
+	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0 0;
+	color: #FFFFFF;
+	position: relative;
+	left: -100%;
+	height: 100%;
+	width: 200%;
+  	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+
+.container.right-panel-active .overlay {
+  	transform: translateX(50%);
+}
+
+.overlay-panel {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 40px;
+	text-align: center;
+	top: 0;
+	height: 100%;
+	width: 50%;
+	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+
+.overlay-left {
+	transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay-left {
+	transform: translateX(0);
+}
+
+.overlay-right {
+	right: 0;
+	transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+	transform: translateX(20%);
+}
+
+.social-container {
+	margin: 20px 0;
+}
+
+.social-container a {
+	border: 1px solid #DDDDDD;
+	border-radius: 50%;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 5px;
+	height: 40px;
+	width: 40px;
+}
+
+.footer-container{
+	margin-top: 10px;
+	
+}
+.site-footer
+{
+  background-color:#26272b;
+  padding:45px 0 20px;
+  font-size:15px;
+  line-height:24px;
+  color:#737373;
+}
+.site-footer hr
+{
+  border-top-color:#bbb;
+  opacity:0.5
+}
+.site-footer hr.small
+{
+  margin:20px 0
+}
+.site-footer h6
+{
+  color:#fff;
+  font-size:16px;
+  text-transform:uppercase;
+  margin-top:5px;
+  letter-spacing:2px
+}
+.site-footer a
+{
+  color:#737373;
+}
+.site-footer a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links
+{
+  padding-left:0;
+  list-style:none
+}
+.footer-links li
+{
+  display:block
+}
+.footer-links a
+{
+  color:#737373
+}
+.footer-links a:active,.footer-links a:focus,.footer-links a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links.inline li
+{
+  display:inline-block
+}
+.site-footer .social-icons
+{
+  text-align:right
+}
+.site-footer .social-icons a
+{
+  width:40px;
+  height:40px;
+  line-height:40px;
+  margin-left:6px;
+  margin-right:0;
+  border-radius:100%;
+  background-color:#33353d
+}
+.copyright-text
+{
+  margin:0
+}
+@media (max-width:991px)
+{
+  .site-footer [class^=col-]
+  {
+    margin-bottom:30px
+  }
+}
+@media (max-width:767px)
+{
+  .site-footer
+  {
+    padding-bottom:0
+  }
+  .site-footer .copyright-text,.site-footer .social-icons
+  {
+    text-align:center
+  }
+}
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+}
+.social-icons li
+{
+  display:inline-block;
+  margin-bottom:4px
+}
+.social-icons li.title
+{
+  margin-right:15px;
+  text-transform:uppercase;
+  color:#96a2b2;
+  font-weight:700;
+  font-size:13px
+}
+.social-icons a{
+  background-color:#eceeef;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+  color:#fff;
+  background-color:#29aafe
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.social-icons a.facebook:hover
+{
+  background-color:#3b5998
+}
+.social-icons a.twitter:hover
+{
+  background-color:#00aced
+}
+.social-icons a.linkedin:hover
+{
+  background-color:#007bb6
+}
+.social-icons a.dribbble:hover
+{
+  background-color:#ea4c89
+}
+@media (max-width:767px)
+{
+  .social-icons li.title
+  {
+    display:block;
+    margin-right:0;
+    font-weight:600
+  }
+}
+
+/*Dropdown*/
+.dropdown {
+	width: 100%;
+
+}
+
+.dropdown-content {
+  width: 100%;
+  display: none;
+  position: relative;
+  background-color: #f9f9f9;
+  z-index: 1000;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 75px;
+  
+}
+.dropdown-content:hover {
+  display: block;
+  background-color:#eee;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+
+}
+
+</style>
+
+ <body>
+
+       <!-- Navbar -->
+       <!-- Navbar (sit on top) -->
+       <div class="w3-top" style="z-index:110;">
+			<div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px; ">
+				<a href="home.html" class="w3-bar-item w3-button"><img src="newlogo1.png" style="width:100px "style="height:50px" >  Research Management System (RMS)</a>
+				<!-- Right-sided navbar links. Hide them on small screens -->
+				<div class="w3-right w3-hide-small">
+				<a href="home.html" class="w3-bar-item w3-button">Home</a>
+				</div>
+				<div class="w3-right w3-hide-small">
+					<a href="Search.html" class="w3-bar-item w3-button">Search</a>
+				</div>
+			</div>
+       </div>
+
+
+
+
+      <!-- Sign In and Sign Up -->
+      <div class="container" id="container">
+	  <div class="form-container sign-up-container" id="modal-signup" class="modal">
+		  <form id="signupForm" >
+			  <h1>Create Account</h1>
+			  <div class="errorSU"style="color:#FF416C;"></div>
+				<input type="text" placeholder="Name" id="Rname" />
+				<input type="text" placeholder="ID Number" id="RIdNo" />
+				<input type="email" placeholder="Email" id="Remail" />
+				<input type="password" placeholder="Pass Key" id="Rpasskey"/>
+				<input type="password" placeholder="Password" id="Rpassword" />
+				
+				<div class="dropdown">
+					<input type="faculty" placeholder="Faculty" id="Rfaculty" disabled/>
+					<div class="dropdown-content">
+					  <button type='button' name="FCOM" id="FacultyFCOM" onclick="faculty(name)">FCOM</button>
+					  <button type='button' name="FEHA" id="FacultyFEHA" onclick="faculty(name)">FEHA</button>
+					  <button type='button' name="FBASS" id="FacultyFBASS" onclick="faculty(name)">FBASS</button>
+					  <button type='button' name="IPS" id="FacultyProfessional" onclick="faculty(name)">IPS</button>
+					  <button type='button' name="CIGLS" id="FacultyIslamic" onclick="faculty(name)">CIGLS</button>
+					  <button type='button' name="IGS" id="GraduateStudies" onclick="faculty(name)">IGS</button>
+
+					</div>
+				  </div>
+			  <button class = "Register" id="Register" >Sign Up</button>
+		  </form>
+	  </div>
+	  <div class="form-container sign-in-container" id="modal-signin" class="modal">
+		  <form id="signinForm">
+			  <h1>Sign in</h1><br>
+			  <div class="errorSI" style="color:#FF416C;"></div>
+			  <input type="text" placeholder="Email" id="SIEmail" />
+			  <input type="password" placeholder="Password" id="SIPassword" /><br>
+			  <a href = "reset.html">Forgot your password?</a><br>
+			  <button class="SignIn" id="SignIn" style="width: 250px;">Sign In as Principal Investigator</button><br />
+			  <button class="AdSignIn" id="AdSignIn" style="width: 250px;">Sign In as Research Coordinator</button><br />
+			  <button class="RMCSignIn" id="RMCSignIn" style="width: 250px;">Sign In as RMC</button>
+
+		  </form>
+	  </div>
+	  <div class="overlay-container">
+		  <div class="overlay">
+			  <div class="overlay-panel overlay-left">
+				  <h1>Welcome Back Fellow User!</h1>
+				  <p>To keep connected with us please login with your RMS Information</p>
+				  <button class="ghost" id="signIn">Sign In</button>
+			  </div>
+			  <div class="overlay-panel overlay-right">
+				  <h1>Create Account</h1>
+				  
+				  <button class="ghost" id="signUp">Sign Up</button>
+			  </div>
+		  </div>
+	  </div>
+      </div>
+  
+
+
+   <!-- <footer class="site-footer">
+<div class="container" style="height:130px;">
+<div class="row">
+<div class="col-sm-12 col-md-6" style="width: 900px; margin-left:35px;">
+<h6>Contact</h6>
+Shamelin,Kuala Lumpur<br />
+Phone: 03-9206 9700<br />
+Email: hafiza@mail.com
+<p></p>
+</div>
+</div>
+
+<hr /></div> -->
+
+<div class="" style=" margin-left:35px;">
+	<div class="row">
+	<div class="col-md-8 col-sm-6 col-xs-12">&nbsp;
+	<p style=" 	margin: 10px 0 10px;" class="copyright-text">Copyright &copy; 2023 All Rights Reserved by <a href="#">UPTM</a>.</p>
+			</div>
+  
+		  
+		  </div>
+	  </div>
+  </footer>
+
+	
+	  
+
+
+	 <script>	
+	 function faculty(name){
+	    console.log(name);
+		Faculty = document.getElementById("Rfaculty");
+
+        Faculty.setAttribute('placeholder',name);
+		Faculty.setAttribute('value',name);
+	 }
+	 
+	  //sign in
+       const signUpButton = document.getElementById('signUp');
+       const signInButton = document.getElementById('signIn');
+	   const container = document.getElementById('container');
+	   
+
+       signUpButton.addEventListener('click', () => {
+	   container.classList.add("right-panel-active");
+       });
+
+       signInButton.addEventListener('click', () => {
+	   container.classList.remove("right-panel-active");
+	   });
+	   
+
+
+	  </script>
+	  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+	  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+	  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+	  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+		
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+			https://firebase.google.com/docs/web/setup#available-libraries -->
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+
+	    <script src = "database.js"></script>
+
+    </body>
+</html>
